@@ -4,13 +4,24 @@ version = "0.1.0"
 description = "Closed-loop re-enforcement learning to trigger emotions"
 authors = ["Oskar <oskar.maier@gmail.com>"]
 readme = "README.md"
+packages = [{include = "emopattern"}]
 
 [tool.poetry.dependencies]
 python = "~3.10"
 lunar-tools = { git = "https://github.com/lunarring/lunar_tools.git", branch = "main" }
-latentblending = { git = "https://github.com/lunarring/latentblending.git", branch="main" }
+#latentblending = { git = "https://github.com/lunarring/latentblending.git", branch="main" }
 #real_time_diffusion = { git = "https://github.com/lunarring/real_time_diffusion.git", branch="main" }  # not a package
+flask = "^3.0.1"
+flask-socketio = "^5.3.6"
+opencv-python = "^4.9.0.80"
+websockets = "^12.0"
+python-dotenv = "^1.0.1"
+zmq = "^0.0.0"
+pyyaml = "^6.0.1"
 
+
+[tool.poetry.group.development.dependencies]
+black = "^23.12.1"
 
 [build-system]
 requires = ["poetry-core"]
