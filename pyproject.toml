@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "emopattern"
+version = "0.1.0"
+description = "Closed-loop re-enforcement learning to trigger emotions"
+authors = ["Oskar <oskar.maier@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.10"
+lunar-tools = { git = "https://github.com/lunarring/lunar_tools.git", branch = "main" }
+latentblending = { git = "https://github.com/lunarring/latentblending.git", branch="main" }
+#real_time_diffusion = { git = "https://github.com/lunarring/real_time_diffusion.git", branch="main" }  # not a package
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
