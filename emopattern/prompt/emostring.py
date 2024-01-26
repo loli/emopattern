@@ -25,12 +25,12 @@ class PromptGeneratorEmostrings(PromptGeneratorBase):
         prompt += "."
 
         # filter down to know emotions
-        emotions = {e: s for e, s in emotions.items() if e in self.config}
+        emotions = self.filter_to_primary(emotions, self.config.keys())
+        # emotions = {e: s for e, s in emotions.items() if e in self.config}
 
         if len(emotions) < 0:
             return prompt
         else:
-            primary_emotion = max(
-                emotions, key=emotions.get
-            )  # keep only most likely emotion
-            return f"{prompt} | {self.config[primary_emotion]}"
+            emotions = self.toponly(emotions)
+            e = list(emotions.keys())[0]
+            return f"{prompt} | {self.config[e]}"

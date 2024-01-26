@@ -6,6 +6,9 @@ logger = logging.getLogger(__name__)
 
 class PromptGeneratorBase(metaclass=ABCMeta):
     DEFAULT_PROMPT = "Mysterious creature coming out of the night sky"  # defaut prompt use when required
+    DEFAULT_PROMPT = (
+        "A very emotional moment. The subjectt's emotions are clearly readable."
+    )
     EMOTIONS_THRESHOLD = (
         0.3  # default minimal likelihood an emotion has to reach to be considered
     )
@@ -59,7 +62,12 @@ class PromptGeneratorBase(metaclass=ABCMeta):
 
     def toponly(self, emotions):
         "Returns a dict with only the highest ranking emotion."
-        return self.threshold(emotions, thr=max(emotions.values()))
+        return self.topn(emotions, 1)
+
+    def topn(self, emotions, n):
+        "Returns dict wiht the top-N emotions."
+        emotions = sorted(emotions.items(), key=lambda x: x[1])[::-1][:n]
+        return {x[0]: x[1] for x in emotions}
 
     def emotions2colorization(self, emotions):
         "Turn emotions dict into weighted emotuion adjectives joined into a string"

@@ -9,6 +9,7 @@ from .simple import PromptGeneratorSimple
 from .mirror import PromptGeneratorMirror
 from .emostring import PromptGeneratorEmostrings
 from .shuffle import PromptGeneratorShuffle
+from .chatgpt import PromptGeneratorChatGPT
 
 __all__ = [
     "PromptGeneratorBase",
@@ -16,4 +17,5 @@ __all__ = [
     "PromptGeneratorMirror",
     "PromptGeneratorEmostrings",
     "PromptGeneratorShuffle",
+    "PromptGeneratorChatGPT",
 ]

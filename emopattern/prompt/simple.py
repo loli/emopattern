@@ -12,7 +12,7 @@ class PromptGeneratorSimple(PromptGeneratorBase):
         if user_input is None:
             user_input = self.DEFAULT_PROMPT
 
-        emotions = self.threshold(emotions, thr=0.7)
+        emotions = self.topn(emotions, 3)
         colorization = self.emotions2colorization(emotions)
 
         return f"{user_input} | {colorization}"

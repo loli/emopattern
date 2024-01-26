@@ -15,6 +15,7 @@ from emopattern.prompt import (
     PromptGeneratorEmostrings,
     PromptGeneratorMirror,
     PromptGeneratorShuffle,
+    PromptGeneratorChatGPT,
 )
 
 
@@ -35,7 +36,12 @@ zmq_client = lt.ZMQPairEndpoint(
 # promptgen = PromptGeneratorEmostrings("emoprompts.yaml")
 # promptgen = PromptGeneratorEmostrings("emostrings_short.yaml")
 # promptgen = PromptGeneratorMirror()
-promptgen = PromptGeneratorShuffle()
+# promptgen = PromptGeneratorShuffle("shuffle2.yaml")
+
+# promptgen = PromptGeneratorSimple()
+promptgen = PromptGeneratorEmostrings("emostrings_short.yaml")
+# promptgen = PromptGeneratorShuffle("shuffle3.yaml", seconds=90)
+# promptgen = PromptGeneratorChatGPT()
 
 
 def main():

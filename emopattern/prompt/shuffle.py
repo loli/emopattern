@@ -35,7 +35,7 @@ class PromptGeneratorShuffle(PromptGeneratorBase):
 
         prompt = self.config["prompts"][self.idx]
 
-        emotions = self.toponly(emotions)
+        emotions = self.topn(emotions, 3)
         colorization = self.emotions2colorization(emotions)
 
         return f"{prompt} | {colorization}"
