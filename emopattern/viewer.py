@@ -4,19 +4,19 @@
 import os
 import logging
 import argparse
-
+import time
 import lunar_tools as lt
 from dotenv import load_dotenv
 
-CAMERA_RES_X = 1920
-CAMERA_RES_Y = 1080
+CAMERA_RES_X = 1024
+CAMERA_RES_Y = 1024
 
 load_dotenv()
 logger = logging.getLogger(__name__)
 zmq_client = lt.ZMQPairEndpoint(
-    is_server=False,
-    ip=os.getenv("ZMQ_SERVER_IP"),
-    port=os.getenv("ZMQ_SERVER_PORT"),
+    is_server=True,
+    ip=os.getenv("ZMQ_VIEWER_SERVER_IP"),
+    port=os.getenv("ZMQ_VIEWER_SERVER_PORT"),
 )
 
 
