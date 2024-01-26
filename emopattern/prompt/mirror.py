@@ -7,7 +7,7 @@ from . import PromptGeneratorBase
 
 class PromptGeneratorMirror(PromptGeneratorBase):
     def __init__(self):
-        "Creates prompt based on randomly selected scenes and an LLM response utilizing the emotion reading."
+        """Creates prompt based on randomly selected scenes and an LLM response utilizing the emotion reading."""
         with open(
             importlib.resources.files("emopattern.resources").joinpath("mirror.yaml"),
             "r",
