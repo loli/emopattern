@@ -10,7 +10,10 @@ from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
 
 from emopattern import emoutils, humeutils
-from emopattern.prompt import PromptGeneratorSimple, PromptGeneratorEmoprompt
+from emopattern.prompt import (
+    PromptGeneratorSimple,
+    PromptGeneratorEmostrings,
+)
 
 
 CAMERA_RES_Y = 480
@@ -24,7 +27,7 @@ zmq_client = lt.ZMQPairEndpoint(
     ip=os.getenv("ZMQ_SERVER_IP"),
     port=os.getenv("ZMQ_SERVER_PORT"),
 )
-promptgen = PromptGeneratorEmoprompt()
+promptgen = PromptGeneratorEmostrings("emostrings_short.yaml")
 
 
 def main():

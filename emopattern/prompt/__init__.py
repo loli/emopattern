@@ -7,11 +7,11 @@ Each class stands for a schema to create prompts from the emotional readings as 
 from .base import PromptGeneratorBase
 from .simple import PromptGeneratorSimple
 from .mirror import PromptGeneratorMirror
-from .emoprompt import PromptGeneratorEmoprompt
+from .emostring import PromptGeneratorEmostrings
 
 __all__ = [
     "PromptGeneratorBase",
     "PromptGeneratorSimple",
     "PromptGeneratorMirror",
-    "PromptGeneratorEmoprompt",
+    "PromptGeneratorEmostrings",
 ]
