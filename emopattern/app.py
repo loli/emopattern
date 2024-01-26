@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
 
 from emopattern import emoutils, humeutils
-from emopattern.prompt import PromptGeneratorSimple
+from emopattern.prompt import PromptGeneratorSimple, PromptGeneratorEmoprompt
 
 
 CAMERA_RES_Y = 480
@@ -38,7 +38,7 @@ def main():
 
     # inits
     keyboard_input = lt.KeyboardInput()
-    cam = lt.WebCam(shape_hw=(CAMERA_RES_Y, CAMERA_RES_X))
+    cam = lt.WebCam(shape_hw=(CAMERA_RES_Y, CAMERA_RES_X), cam_id=args.camera)
     renderer = lt.Renderer(height=CAMERA_RES_Y, width=CAMERA_RES_X, backend="opencv")
     speech_detector = lt.Speech2Text()
 
@@ -97,6 +97,9 @@ def get_parser():
     parser = argparse.ArgumentParser(
         prog="emopattern",
         description="Emotion capture through the webcam and scene change through input",
+    )
+    parser.add_argument(
+        "--camera", help="Camera to use, from 0 to X.", type=int, default=0
     )
     parser.add_argument("-d", "--debug", help="Debug messages.", action="store_true")
     return parser

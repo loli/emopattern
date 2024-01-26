@@ -2,6 +2,9 @@ from abc import ABCMeta, abstractmethod
 
 
 class PromptGeneratorBase(metaclass=ABCMeta):
+    DEFAULT_PROMPT = "highly cinematic photo showing a scene from a dream, photography, film still, shot on kodak"
+    # DEFAULT_PROMPT = "Generate a surreal dreamscape landscape that transcends reality, featuring fantastical elements, vibrant colors, and ethereal lighting. Convey a sense of wonder, whimsy, and imaginative exploration, as if the viewer has stepped into a dream world filled with magical landscapes and otherworldly beauty."
+
     @abstractmethod
     def get_prompt(
         self, emotions: dict[str, float], user_input: str | None = None
