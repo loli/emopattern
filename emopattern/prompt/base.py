@@ -1,9 +1,25 @@
+import logging
 from abc import ABCMeta, abstractmethod
+
+logger = logging.getLogger(__name__)
 
 
 class PromptGeneratorBase(metaclass=ABCMeta):
-    DEFAULT_PROMPT = "highly cinematic photo showing a scene from a dream, photography, film still, shot on kodak"
-    # DEFAULT_PROMPT = "Generate a surreal dreamscape landscape that transcends reality, featuring fantastical elements, vibrant colors, and ethereal lighting. Convey a sense of wonder, whimsy, and imaginative exploration, as if the viewer has stepped into a dream world filled with magical landscapes and otherworldly beauty."
+    DEFAULT_PROMPT = "Mysterious creature coming out of the night sky"  # defaut prompt use when required
+    EMOTIONS_THRESHOLD = (
+        0.3  # default minimal likelihood an emotion has to reach to be considered
+    )
+    EMOTIONS_PRIMARY = [
+        "Calmness",
+        "Joy",
+        "Amusement",
+        "Anger",
+        "Confusion",
+        "Disgust",
+        "Sadness",
+        "Horror",
+        "Surprise",
+    ]  # default list of primary emotions, can be used to filter
 
     @abstractmethod
     def get_prompt(
@@ -20,3 +36,23 @@ class PromptGeneratorBase(metaclass=ABCMeta):
 
         """
         pass
+
+    def filter_to_primary(
+        self,
+        emotions: dict[str, float],
+        valid: list[str] | None = None,
+    ) -> dict[str, float]:
+        """Filter the emotions, returning only the once considered primary."""
+        if valid is None:
+            valid = self.EMOTIONS_PRIMARY
+        return {e: s for e, s in emotions.items() if e in valid}
+
+    def threshold(
+        self,
+        emotions: dict[str, float],
+        thr: float | None = None,
+    ) -> dict[str, float]:
+        """Filter emotions whose likelihood does not meet the threshold criteria."""
+        if thr is None:
+            thr = self.EMOTIONS_THRESHOLD
+        return {e: s for e, s in emotions.items() if e > thr}
