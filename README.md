@@ -10,7 +10,7 @@ Create `.env` file in the main repo directory and add:
 export ZMQ_SERVER_IP = "10.50.10.15"
 export ZMQ_SERVER_PORT = "5556"
 
-export OPENAI_API_KEY="XXX"
+export OPEN_AI_KEY="XXX"
 export HUME_API_KEY="XXX"
 ```
 

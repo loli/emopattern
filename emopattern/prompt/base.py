@@ -55,4 +55,14 @@ class PromptGeneratorBase(metaclass=ABCMeta):
         """Filter emotions whose likelihood does not meet the threshold criteria."""
         if thr is None:
             thr = self.EMOTIONS_THRESHOLD
-        return {e: s for e, s in emotions.items() if e > thr}
+        return {e: s for e, s in emotions.items() if s >= thr}
+
+    def toponly(self, emotions):
+        "Returns a dict with only the highest ranking emotion."
+        return self.threshold(emotions, thr=max(emotions.values()))
+
+    def emotions2colorization(self, emotions):
+        "Turn emotions dict into weighted emotuion adjectives joined into a string"
+        emoplusses = [f"{e}" + "+" * int(s * 10) for e, s in emotions.items()]
+        colorization = ", ".join(emoplusses)
+        return colorization

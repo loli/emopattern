@@ -13,6 +13,8 @@ from emopattern import emoutils, humeutils
 from emopattern.prompt import (
     PromptGeneratorSimple,
     PromptGeneratorEmostrings,
+    PromptGeneratorMirror,
+    PromptGeneratorShuffle,
 )
 
 
@@ -27,7 +29,13 @@ zmq_client = lt.ZMQPairEndpoint(
     ip=os.getenv("ZMQ_SERVER_IP"),
     port=os.getenv("ZMQ_SERVER_PORT"),
 )
-promptgen = PromptGeneratorEmostrings("emostrings_short.yaml")
+
+# prompt generation schema
+# promptgen = PromptGeneratorSimple()
+# promptgen = PromptGeneratorEmostrings("emoprompts.yaml")
+# promptgen = PromptGeneratorEmostrings("emostrings_short.yaml")
+# promptgen = PromptGeneratorMirror()
+promptgen = PromptGeneratorShuffle()
 
 
 def main():

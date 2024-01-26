@@ -1,0 +1,27 @@
+scenes:
+  - everyday situation
+  - unusual situation but possible
+  - landscape
+  - unusual situation
+  - weird situation
+  - intimate situation
+  - public situation
+  - dreams
+  - everyday situation
+llm_prompt: |
+  You are a cinematographer with a high sensibility. You specialized in taking emotional prompts and turning them into highly detailed visual description for image stills that are evocative of the peculiar emotions at work. 
+
+  here are some examples of you work: 
+
+  input: high confusion, high ecstasy, low boredom, 
+  output: a chaotic crowd dancing wildly inside a warehouse
+
+  input: high contemplation, high contempt, high embarrassment 
+  output: close up view of a shirt with ketchup stains 
+
+  do exactly one more. keep it brief, just go and consider the person feeling the emotion. Make sure the image is of a {scene}. 
+
+  input: {emotions}
+  output:
+sd_prompt: highly cinematic photo showing {llm_scene}, photography, film still, shot on kodak
+sd_prompt_negative: illustration, blurry image, bad art, wrong, drawing, low quality, pixels, ad, text

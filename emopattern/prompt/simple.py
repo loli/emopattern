@@ -9,10 +9,10 @@ class PromptGeneratorSimple(PromptGeneratorBase):
         pass
 
     def get_prompt(self, emotions: dict[str, float], user_input: str | None = None):
-        emoplusses = [f"{e}" + "+" * int(s * 10) for e, s in emotions.items()]
-        colorization = ", ".join(emoplusses)
-
         if user_input is None:
             user_input = self.DEFAULT_PROMPT
 
-        return f"{user_input}, {colorization}"
+        emotions = self.threshold(emotions, thr=0.7)
+        colorization = self.emotions2colorization(emotions)
+
+        return f"{user_input} | {colorization}"
