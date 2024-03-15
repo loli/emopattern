@@ -10,15 +10,15 @@ Create `.env` file in the main repo directory and add:
 
 ```
 # the machine the stable diffusion model app runs on
-export ZMQ_SERVER_IP = "10.50.10.15"
-export ZMQ_SERVER_PORT = "5556"
+export ZMQ_SERVER_IP="10.19.6.51"
+export ZMQ_SERVER_PORT="5556"
 
 # the machine the viewer runs on
 export ZMQ_VIEWER_SERVER_IP="10.50.10.17"  # "10.50.10.254"
-export ZMQ_VIEWER_SERVER_PORT = "5557"
+export ZMQ_VIEWER_SERVER_PORT="5557"
 
 # the API keys required for the app
-export OPEN_AI_KEY="XXX"
+export OPENAI_API_KEY="XXX"
 export HUME_API_KEY="XXX"
 ```
 

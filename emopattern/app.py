@@ -39,8 +39,8 @@ zmq_client = lt.ZMQPairEndpoint(
 # promptgen = PromptGeneratorShuffle("shuffle2.yaml")
 
 # promptgen = PromptGeneratorSimple()
-promptgen = PromptGeneratorEmostrings("emostrings_short.yaml")
-# promptgen = PromptGeneratorShuffle("shuffle3.yaml", seconds=90)
+# promptgen = PromptGeneratorEmostrings("emostrings_short.yaml")
+promptgen = PromptGeneratorShuffle("shuffle3.yaml", seconds=90)
 # promptgen = PromptGeneratorChatGPT()
 
 

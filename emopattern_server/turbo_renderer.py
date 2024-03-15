@@ -18,9 +18,11 @@ use_maxperf = False  # whether to compile the model
 fract_increment = (
     0.003  # usually 0.001 to 0.05; speed of transition between prompts (0 to 1)
 )
-ip_server = "10.50.10.15"  # ip of this machine, queque listens for new prompt
+ip_server = "0.0.0.0"  # ip of this machine, queque listens for new prompt
 send = True  # whether to send generated images to render app's machine
-ip_viewer = "10.50.10.17"  # ip of render app's machine, generated images are send there
+ip_viewer = (
+    "78.137.232.191"  # ip of render app's machine, generated images are send there
+)
 render = False  # whether to render generated images also on this machine
 render_size = (512, 512)  # (height, width) of rendered images on this machine
 
