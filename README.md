@@ -37,3 +37,12 @@ export HUME_API_KEY="XXX"
 ## Run the viewer app
 
 `poetry run python emopattern/viewer.py`
+
+
+## TODO
+
+- Adapt server to read .env file, too
+- Adapt server to use only server side of ZMQueque, viewer should request images
+- Adapt detector to also allow prompt updates via keyboard
+- Adapt detector to be robust against missing / errorneous openapi key
+- Try to reduce viewer / detector dependencies (e.g. by extracting code from lunar-tools)
