@@ -1,0 +1,27 @@
+[tool.poetry]
+package-mode = false
+name = "emopattern-server"
+version = "0.1.0alpha"
+description = "Server running the Stable Difussion SDXL Turbo model and handling the blending"
+authors = ["loli <oskar.maier@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.10"
+torch = "~2.2"
+#torch = "^2.2.1" # source: https://download.pytorch.org/whl/cu121
+diffusers = {extras = ["torch"], version = "~0.27"}
+transformers = "~4.38"
+lunar-tools = { git = "https://github.com/lunarring/lunar_tools.git", branch = "main" }
+stable-fast = {url = "https://github.com/chengzeyi/stable-fast/releases/download/v1.0.4/stable_fast-1.0.4+torch220cu121-cp310-cp310-manylinux2014_x86_64.whl", platform = "linux"}
+#stable-fast = [
+#	{platform = "linux", uri = "https://github.com/chengzeyi/stable-fast/releases/download/v1.0.4/stable_fast-1.0.4+torch220cu121-cp310-cp310-manylinux2014_x86_64.whl"},
+#	{platform = "windows", uri = "https://github.com/chengzeyi/stable-fast/releases/download/v1.0.4/stable_fast-1.0.4+torch220cu121-cp310-cp310-win_amd64.whl"} 
+#]
+
+[tool.poetry.group.dev.dependencies]
+black = "24.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

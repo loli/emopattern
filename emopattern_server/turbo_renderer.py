@@ -6,7 +6,7 @@ from diffusers import AutoPipelineForText2Image, AutoPipelineForImage2Image
 import torch
 import sys
 
-sys.path.append("/home/lunar/git/coupling_diffusion")
+#sys.path.append("/home/lunar/git/coupling_diffusion")
 from diffusers import AutoencoderTiny
 from sfast.compilers.stable_diffusion_pipeline_compiler import (compile, CompilationConfig)
 from diffusers.utils import load_image
@@ -15,7 +15,6 @@ import numpy as np
 from PIL import Image
 from lunar_tools.comms import OSCSender, OSCReceiver
 from lunar_tools.control_input import MidiInput
-sys.path.append("")
 from prompt_blender import PromptBlender
 
 
